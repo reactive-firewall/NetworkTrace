@@ -1,4 +1,11 @@
-Base Module Repository
-======================
+Fetch Public Blacklists Tool
+============================
 
-This new project is based on an example repo for Python projects by Kenneth Reitz. `Learn more <http://www.kennethreitz.org/essays/repository-structure-and-python>`_.
+A tool to fetch public blacklists for other tools.
+
+TODO:
+=====
+- add docs
+- add installer
+- debug?
+- etc
