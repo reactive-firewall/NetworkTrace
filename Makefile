@@ -22,7 +22,9 @@ install:
 	$(QUIET)$(ECHO) "$@: Done."
 
 test:
-	nosetests tests
+	$(QUIET)python -m unittest tests.test_basic
+	$(QUIET)python -m unittest tests.test_advanced
+
 
 %:
 	$(QUIET)$(ECHO) "No Rule Found For $@" ; $(WAIT) ;
