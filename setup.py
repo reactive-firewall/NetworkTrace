@@ -11,7 +11,7 @@ with open('LICENSE') as f:
 
 setup(
     name='NetworkTraceScripts',
-    version='0.1.0',
+    version='0.1.2',
     description='Network Trace Scripts from reactive-firewall',
     long_description=readme,
     author='reactive-firewall',
