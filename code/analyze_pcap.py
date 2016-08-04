@@ -30,10 +30,10 @@ def writeFile(somefile, somedata):
 		with open(theWritePath, 'w') as f:
 			read_data = f.write(somedata)
 		f.close()
-	except:
+	except Exception:
 		try:
 			f.close()
-		except:
+		except Exception:
 			return False
 		return False
 	return True
@@ -48,7 +48,7 @@ def readPCAPFile(theFilePath):
 	user_name = str(get_username())
 	try:
 		theResult = subprocess.check_output(["tcpdump", "-K", "-Z", user_name, "-n", "-S", "-l", "-r", str(theFilePath), "-vvv", "-A", "-XX", "ip or not ip"])
-	except:
+	except Exception:
 		theResult = "an error occured while reading the pcap file, check the path and try sudo"
 	return theResult
 
@@ -65,7 +65,7 @@ def readPCAPFileHEX(theFilePath):
 		p2 = subprocess.Popen(["fgrep", "0x"], stdin=p1.stdout, stdout=subprocess.PIPE)
 		p1.stdout.close()  # Allow p1 to receive a SIGPIPE if p2 exits.
 		theResult = p2.communicate()[0]
-	except:
+	except Exception:
 		theResult = "an error occured while reading the pcap file, check the path and try sudo"
 	return theResult
 
@@ -81,7 +81,7 @@ def readPCAPFileHEX(theFilePath):
 #		p2 = subprocess.Popen(["fgrep", "0x"], stdin=p1.stdout, stdout=subprocess.PIPE)
 #		p1.stdout.close()  # Allow p1 to receive a SIGPIPE if p2 exits.
 #		theResult = p2.communicate()[0]
-#	except:
+#	except Exception:
 #		theResult = "an error occured while reading the pcap file, check the path and try sudo"
 #	return theResult
 
@@ -92,12 +92,10 @@ if __name__ == '__main__':
 		output_file = args.output_file
 		hex_mode = args.hex_mode
 		if (input_file is None):
-			print "decode_pcap: grumble....grumble: INPUT_FILE is set to None! Nothing to do."
+			print(str("decode_pcap: grumble....grumble: INPUT_FILE is set to None! Nothing to do."))
 			exit(3)
-
 		#	if (output_file is None) and (hex_mode is False):
-		#		print "decode_pcap: grumble....grumble: OUTPUT_FILE is set to None! OUTPUT_MODE is data. Nothing will be saved!"
-
+		#		print(str("decode_pcap: grumble....grumble: OUTPUT_FILE is set to None! OUTPUT_MODE is data. Nothing will be saved!"))
 		if input_file is not None:
 			theData = None
 			if hex_mode is not True:
@@ -109,8 +107,7 @@ if __name__ == '__main__':
 				print theData
 			else:
 				writeFile(str(output_file), theData)
-	except:
-		print "decode_pcap: REALLY BAD ERROR: ACTION will not be compleated! ABORT!"
+	except Exception:
+		print(str("decode_pcap: REALLY BAD ERROR: ACTION will not be compleated! ABORT!"))
 		exit(5)
-
 	exit(0)
