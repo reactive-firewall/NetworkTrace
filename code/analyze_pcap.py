@@ -104,7 +104,7 @@ if __name__ == '__main__':
 				theData = readPCAPFileHEX(input_file)
 
 			if output_file is None:
-				print theData
+				print(str(theData))
 			else:
 				writeFile(str(output_file), theData)
 	except Exception:
