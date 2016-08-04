@@ -1,11 +1,9 @@
-Fetch Public Blacklists Tool
+Network Trace Tools
 ============================
 
-A tool to fetch public blacklists for other tools.
+A couple of scripts to help record network traces for debugging
 
 TODO:
 =====
-- add docs
-- add installer
+- add better docs
 - debug?
-- etc

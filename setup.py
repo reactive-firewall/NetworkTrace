@@ -10,13 +10,13 @@ with open('LICENSE') as f:
     license = f.read()
 
 setup(
-    name='sample',
-    version='0.0.1',
-    description='New package from reactive-firewall',
+    name='NetworkTraceScripts',
+    version='0.1.0',
+    description='Network Trace Scripts from reactive-firewall',
     long_description=readme,
     author='reactive-firewall',
     author_email='reactive-firewall@users.noreply.github.com',
-    url='https://github.com/reactive-firewall',
+    url='https://github.com/reactive-firewall/NetworkTrace.git',
     license=license,
     packages=find_packages(exclude=('tests', 'docs'))
 )

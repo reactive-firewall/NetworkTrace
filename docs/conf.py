@@ -40,7 +40,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'FetchPublicBlacklists'
+project = u'NetworkTrace'
 copyright = u'2016, reactive-firewall'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -164,7 +164,7 @@ html_static_path = ['_static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'FetchPublicBlacklists'
+htmlhelp_basename = 'NetworkTrace'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -183,7 +183,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'Documentation.tex', u'Fetch Public Blacklists Documentation',
+  ('index', 'Documentation.tex', u'Network Trace Scripts Documentation',
    u'reactive-firewall', 'manual'),
 ]
 
@@ -213,7 +213,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'Fetch Public Blacklists', u'Fetch Public Blacklists Documentation',
+    ('index', 'Network Trace Scripts', u'Network Trace Scripts Documentation',
      [u'Kendrick Walls'], 1)
 ]
 
@@ -227,8 +227,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'pymon', u'Fetch Public Blacklists Documentation',
-   u'reactive-firewall', 'Fetch Public Blacklists', 'One line description of project.',
+  ('index', 'NetworkTrace', u'Network Trace Scripts Documentation',
+   u'reactive-firewall', 'Network Trace Scripts', 'Network Trace Scripts.',
    'Miscellaneous'),
 ]
 
