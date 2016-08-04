@@ -7,3 +7,5 @@ TODO:
 =====
 - add better docs
 - debug?
+.. image:: https://travis-ci.org/reactive-firewall/NetworkTrace.svg?branch=master
+    :target: https://travis-ci.org/reactive-firewall/NetworkTrace
