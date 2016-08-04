@@ -3,7 +3,6 @@
 def parseargs():
 	""""parse the arguments"""
 	import argparse
-
 	parser = argparse.ArgumentParser(description='Decodes the content of a pcap file', epilog="Usually used to extract the file data from the a network trace (pcap) file. Remember last option wins.")
 	parser.add_argument('-o', '--out', dest='output_file', required=True, help='The output file to save.')
 	parser.add_argument('-i', '--interface', default=None, help='The interface to use (usualy en0 or eth0)')
@@ -29,10 +28,10 @@ def get_username():
 #		with open(theWritePath, 'w') as f:
 #			read_data = f.write(somedata)
 #		f.close()
-#	except:
+#	except Exception:
 #		try:
 #			f.close()
-#		except:
+#		except Exception:
 #			return False
 #		return False
 #	return True
@@ -50,24 +49,24 @@ def recordPCAPFile(theFilePath, theRecordMode, interface=None):
 		if interface is not None:
 			try:
 				theResult = subprocess.check_output(["tcpdump", "-K", "-Z", str(user_name), "-f", "-n", "-S", "-U", "-w", str(theFilePath), "-vvv", "-p", "-i", str(interface), tail_cmd])
-			except:
+			except Exception:
 				theResult = "an error occured while reading the pcap file, check the path and try sudo"
 		else:
 			try:
 				theResult = subprocess.check_output(["tcpdump", "-K", "-Z", str(user_name), "-f", "-n", "-S", "-U", "-w", str(theFilePath), "-vvv", "-p", tail_cmd])
-			except:
+			except Exception:
 				theResult = "an error occured while reading the pcap file, check the path and try sudo"
 	else:
 		if interface is not None:
 			interface_cmd = str("-i "+str(interface))
 			try:
 				theResult = subprocess.check_output(["tcpdump", "-K", "-Z", str(user_name), "-f", "-n", "-S", "-U", "-w", str(theFilePath), "-vvv", "-i", str(interface), tail_cmd])
-			except:
+			except Exception:
 				theResult = "an error occured while reading the pcap file, check the path and try sudo"
 		else:
 			try:
 				theResult = subprocess.check_output(["tcpdump", "-K", "-Z", str(user_name), "-f", "-n", "-S", "-U", "-w", str(theFilePath), "-vvv", tail_cmd])
-			except:
+			except Exception:
 				theResult = "an error occured while reading the pcap file, check the path and try sudo"
 	return theResult
 
@@ -83,7 +82,7 @@ def recordPCAPFile(theFilePath, theRecordMode, interface=None):
 #		p2 = subprocess.Popen(["fgrep", "0x"], stdin=p1.stdout, stdout=subprocess.PIPE)
 #		p1.stdout.close()  # Allow p1 to receive a SIGPIPE if p2 exits.
 #		theResult = p2.communicate()[0]
-#	except:
+#	except Exception:
 #		theResult = "an error occured while reading the pcap file, check the path and try sudo"
 #	return theResult
 
@@ -94,17 +93,14 @@ if __name__ == '__main__':
 		output_file = args.output_file
 		whore_mode = args.whore_mode
 		if (output_file is None):
-			print "record_pcap: grumble....grumble: OUTPUT_FILE is set to None! Nothing to save. Nothing to do."
+			print(str("record_pcap: grumble....grumble: OUTPUT_FILE is set to None! Nothing to save. Nothing to do."))
 			exit(3)
-
 		if output_file is not None:
 			if interface is None:
 				recordPCAPFile(output_file, whore_mode)
 			else:
 				recordPCAPFile(output_file, whore_mode, interface)
-
-	except:
-		print "record_pcap: REALLY BAD ERROR: ACTION will not be compleated! ABORT!"
+	except Exception:
+		print(str("record_pcap: REALLY BAD ERROR: ACTION will not be compleated! ABORT!"))
 		exit(5)
-
 	exit(0)
