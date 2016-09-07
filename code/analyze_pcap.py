@@ -3,7 +3,6 @@
 def parseargs():
 	""""parse the arguments"""
 	import argparse
-
 	parser = argparse.ArgumentParser(description='Decodes the content of a pcap file', epilog="Usually used to extract the file data from the a network trace (pcap) file. Remember last option wins.")
 	parser.add_argument('-i', '--in', dest='input_file', required=True, help='The pcap file to read')
 	parser.add_argument('-o', '--out', dest='output_file', required=False, help='The output file to save.')
@@ -68,22 +67,6 @@ def readPCAPFileHEX(theFilePath):
 	except Exception:
 		theResult = "an error occured while reading the pcap file, check the path and try sudo"
 	return theResult
-
-# just data mode not implemented (why drop the headers?)
-#def readPCAPFileData(theFilePath):
-#	import base64
-#	import os
-#	import subprocess
-#	if theFilePath is None:
-#		theFilePath=str("/tmp/pcap_content_*SWAP.pcap")
-#	try:
-#		p1 = subprocess.Popen(["tcpdump", "-K", "-Z", str(os.getusername()), "-n", "-S", "-l", "-r", str(theFilePath), "-XX", "ip or not ip"], stdout=subprocess.PIPE)
-#		p2 = subprocess.Popen(["fgrep", "0x"], stdin=p1.stdout, stdout=subprocess.PIPE)
-#		p1.stdout.close()  # Allow p1 to receive a SIGPIPE if p2 exits.
-#		theResult = p2.communicate()[0]
-#	except Exception:
-#		theResult = "an error occured while reading the pcap file, check the path and try sudo"
-#	return theResult
 
 if __name__ == '__main__':
 	args = parseargs()
